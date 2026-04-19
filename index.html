@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Language Learning Site</title>
+  <title>Language Learning Site</title>
 
   <style>
     body {
-      display: flex;
+      margin: 0;
       font-family: Arial;
+    }
+
+    .topbar {
+      background: #333;
+      color: white;
+      padding: 10px;
+      display: flex;
+    }
+
+    .topbar button {
+      margin-right: 10px;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .container {
+      display: flex;
     }
 
     .sidebar {
@@ -15,51 +32,36 @@
       padding: 20px;
     }
 
-    .content {
-      padding: 20px;
-    }
-
-    a {
+    .sidebar button {
       display: block;
       margin: 10px 0;
-      text-decoration: none;
+      width: 100%;
+      padding: 10px;
       cursor: pointer;
+    }
+
+    .content {
+      padding: 20px;
+      flex: 1;
     }
   </style>
 
   <script>
-    function showContent(language) {
+    let currentLanguage = "french";
+
+    function setLanguage(lang) {
+      currentLanguage = lang;
+      document.getElementById("content").innerHTML =
+        "<h2>Select a category</h2>";
+    }
+
+    function showCategory(category) {
       const content = document.getElementById("content");
 
-      if (language === "french") {
-        content.innerHTML = `
-          <h2>French</h2>
-          <ul>
-            <li>Reading</li>
-            <li>Teaching</li>
-          </ul>
-        `;
-      }
-
-      if (language === "german") {
-        content.innerHTML = `
-          <h2>German</h2>
-          <ul>
-            <li>Reading</li>
-            <li>Teaching</li>
-          </ul>
-        `;
-      }
-
-      if (language === "spanish") {
-        content.innerHTML = `
-          <h2>Spanish</h2>
-          <ul>
-            <li>Reading</li>
-            <li>Teaching</li>
-          </ul>
-        `;
-      }
+      content.innerHTML = `
+        <h2>${currentLanguage.toUpperCase()} - ${category}</h2>
+        <p>Content coming soon...</p>
+      `;
     }
   </script>
 
@@ -67,16 +69,29 @@
 
 <body>
 
-<div class="sidebar">
-  <h3>Languages</h3>
-  <a onclick="showContent('french')">French</a>
-  <a onclick="showContent('german')">German</a>
-  <a onclick="showContent('spanish')">Spanish</a>
+<!-- 顶部语言栏 -->
+<div class="topbar">
+  <button onclick="setLanguage('french')">French</button>
+  <button onclick="setLanguage('german')">German</button>
+  <button onclick="setLanguage('spanish')">Spanish</button>
 </div>
 
-<div class="content" id="content">
-  <h1>Welcome</h1>
-  <p>Select a language to start learning!</p>
+<div class="container">
+
+  <!-- 左侧分类 -->
+  <div class="sidebar">
+    <h3>Categories</h3>
+    <button onclick="showCategory('Reading')">Reading</button>
+    <button onclick="showCategory('Writing')">Writing</button>
+    <button onclick="showCategory('Teaching')">Teaching</button>
+  </div>
+
+  <!-- 右侧内容 -->
+  <div class="content" id="content">
+    <h1>Welcome</h1>
+    <p>Select a language and category</p>
+  </div>
+
 </div>
 
 </body>
