@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Language Learning Site</title>
+
+  <style>
+    body {
+      display: flex;
+      font-family: Arial;
+    }
+
+    .sidebar {
+      width: 200px;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    a {
+      display: block;
+      margin: 10px 0;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+
+  <script>
+    function showContent(language) {
+      const content = document.getElementById("content");
+
+      if (language === "french") {
+        content.innerHTML = `
+          <h2>French</h2>
+          <ul>
+            <li>Reading</li>
+            <li>Teaching</li>
+          </ul>
+        `;
+      }
+
+      if (language === "german") {
+        content.innerHTML = "<h2>German content coming soon</h2>";
+      }
+
+      if (language === "spanish") {
+        content.innerHTML = "<h2>Spanish content coming soon</h2>";
+      }
+    }
+  </script>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+  <h3>Languages</h3>
+  <a onclick="showContent('french')">French</a>
+  <a onclick="showContent('german')">German</a>
+  <a onclick="showContent('spanish')">Spanish</a>
+</div>
+
+<div class="content" id="content">
+  <h1>Welcome</h1>
+  <p>Select a language to start learning!</p>
+</div>
+
+</body>
+</html>
