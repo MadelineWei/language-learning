@@ -112,21 +112,21 @@
     function showCategory(category) {
   const content = document.getElementById("content");
 
-  if (currentLanguage === "Spanish" && category === "Reading") {
-    content.innerHTML = `
-      <div class="card">
-        <h2>Spanish - Reading</h2>
+      if (currentLanguage === "Spanish" && category === "Reading") {
+  content.innerHTML = `
+    <div class="card">
+      <h2>Spanish - Reading</h2>
 
-        <p>
-          📄 <a href="https://raw.githubusercontent.com/MadelineWei/language-learning/main/Antes%20de%20diciembre(reading1).pdf" target="_blank">
-          Lesson 1 PDF
-          </a>
-        </p>
+      <iframe 
+        src="https://raw.githubusercontent.com/MadelineWei/language-learning/main/Antes%20de%20diciembre(reading1).pdf" target="_blank"
+        width="100%" 
+        height="600px">
+      </iframe>
 
-      </div>
-    `;
-    return;
-  }
+    </div>
+  `;
+  return;
+}
 
   content.innerHTML = `
     <div class="card">
