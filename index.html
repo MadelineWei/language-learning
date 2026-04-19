@@ -110,19 +110,32 @@
     }
 
     function showCategory(category) {
-      const content = document.getElementById("content");
+  const content = document.getElementById("content");
 
-      content.innerHTML = `
-        <div class="card">
-          <h2>${currentLanguage} - ${category}</h2>
-          <p>This is where your materials will go.</p>
-        </div>
+  if (currentLanguage === "Spanish" && category === "Reading") {
+    content.innerHTML = `
+      <div class="card">
+        <h2>Spanish - Reading</h2>
 
-        <div class="card">
-          <p>📄 PDF / 📺 Video / ✍️ Notes can be added here</p>
-        </div>
-      `;
-    }
+        <p>
+          📄 <a href="https://raw.githubusercontent.com/MadelineWei/language-learning/main/Antes%20de%20diciembre(reading1).pdf" target="_blank">
+          Lesson 1 PDF
+          </a>
+        </p>
+
+      </div>
+    `;
+    return;
+  }
+
+  content.innerHTML = `
+    <div class="card">
+      <h2>${currentLanguage} - ${category}</h2>
+      <p>Content coming soon...</p>
+    </div>
+  `;
+}
+
   </script>
 
 </head>
